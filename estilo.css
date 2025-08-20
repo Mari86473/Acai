@@ -1,0 +1,562 @@
+/* Reset básico e estilos globais */
+* {
+  margin: 0; /* Remove margens de todos os elementos */
+  padding: 0; /* Remove preenchimento de todos os elementos */
+  box-sizing: border-box; /* Faz com que padding e borda não aumentem o tamanho total */
+}
+
+body {
+  font-family: Arial, sans-serif; /* Define a fonte padrão para toda a página */
+}
+
+/* Estilos do banner principal no topo da página */
+.banner-container {
+  width: 100%; /* Ocupa toda a largura da tela */
+  position: relative; /* Permite posicionar elementos dentro dele */
+  height: 150px; /* Altura fixa do banner */
+  overflow: hidden; /* Esconde qualquer conteúdo que saia da área */
+  display: flex; /* Usa flexbox para alinhamento */
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+  background-color: #f0f0f0; /* Cor de fundo se a imagem não carregar */
+}
+
+.banner-imagem {
+  width: 100%; /* Ocupa toda a largura do container */
+  height: 100%; /* Ocupa toda a altura do container */
+  object-fit: cover; /* Ajusta a imagem para preencher o espaço */
+  object-position: center 30%; /* Posiciona a imagem com foco no topo */
+}
+
+.logo-e-botoes {
+  position: absolute; /* Posiciona sobre o banner */
+  top: 50%; /* Começa no meio vertical */
+  left: 50%; /* Começa no meio horizontal */
+  transform: translate(-50%, -50%); /* Centraliza perfeitamente */
+  display: flex; /* Usa flexbox para organizar elementos */
+  flex-direction: column; /* Coloca elementos em coluna (um embaixo do outro) */
+  align-items: center; /* Centraliza os itens */
+  z-index: 10; /* Garante que fique acima de outros elementos */
+  gap: 0px; /* Espaço entre os elementos */
+  width: 100%; /* Ocupa toda a largura */
+  text-align: center; /* Centraliza o texto */
+}
+
+.logo-sobreposta {
+  width: 120px; /* Tamanho fixo para o logo */
+  filter: drop-shadow(0 0 5px rgba(0,0,0,0.7)); /* Adiciona sombra ao logo */
+}
+
+.botoes-redes-container {
+  display: flex; /* Organiza os botões em linha */
+  gap: 10px; /* Espaço entre os botões */
+  justify-content: center; /* Centraliza os botões */
+  align-items: center; /* Alinha verticalmente */
+}
+
+.botao-instagram {
+  width: 22px; /* Tamanho fixo do botão */
+  height: 22px; /* Tamanho fixo do botão */
+  background-color: white; /* Cor de fundo branca */
+  border-radius: 50%; /* Faz o botão redondo */
+  display: flex; /* Para centralizar a imagem dentro */
+  align-items: center; /* Centraliza verticalmente */
+  justify-content: center; /* Centraliza horizontalmente */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Adiciona sombra suave */
+}
+
+.botao-instagram img {
+  width: 15px; /* Tamanho do ícone do Instagram */
+  height: 15px; /* Tamanho do ícone do Instagram */
+}
+
+.botao-informacoes {
+  background-color: #8E22bb; /* Cor roxa de fundo */
+  color: white; /* Cor do texto branca */
+  padding: 5px 10px; /* Espaçamento interno */
+  border-radius: 15px; /* Cantos arredondados */
+  texto-decoration: none; /* Remove sublinhado do link */
+  font-weight: bold; /* Texto em negrito */
+  font-size: 7px; /* Tamanho pequeno de fonte */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Sombra suave */
+  margin: -6px; /* Margem negativa para ajustar posição */
+}
+
+.botao-informacoes:hover {
+  background-color: #8E22bb; /* Mantém a cor ao passar o mouse */
+}
+
+/* Janela pop-up que aparece ao clicar em "Mais Informações" */
+.modal {
+  display: none; /* Esconde a janela inicialmente */
+  position: fixed; /* Fica fixa na tela */
+  z-index: 1000; /* Fica acima de tudo */
+  left: 0; /* Começa no canto esquerdo */
+  top: 0; /* Começa no topo */
+  width: 100%; /* Ocupa toda a largura */
+  height: 100%; /* Ocupa toda a altura */
+  background-color: rgba(0,0,0,0.8); /* Fundo escuro semi-transparente */
+  animation: fadeIn 0.3s; /* Animação de aparecer suavemente */
+}
+
+.modal-conteudo {
+  background-color: #fff; /* Fundo branco */
+  margin: 10% auto; /* Centraliza com margem no topo */
+  padding: 25px; /* Espaçamento interno */
+  border-radius: 12px; /* Cantos arredondados */
+  width: 85%; /* Largura responsiva */
+  max-width: 450px; /* Largura máxima */
+  position: relative; /* Para posicionar o botão de fechar */
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3); /* Sombra mais pronunciada */
+  animation: slideDown 0.4s; /* Animação de deslizar para baixo */
+}
+
+.fechar-modal {
+  color: #999; /* Cor cinza para o X */
+  position: absolute; /* Posiciona dentro do modal */
+  right: 15px; /* Distância da direita */
+  top: 10px; /* Distância do topo */
+  font-size: 28px; /* Tamanho grande */
+  font-weight: bold; /* Negrito */
+  cursor: pointer; /* Muda cursor para mãozinha */
+  transition: all 0.3s; /* Transição suave para hover */
+}
+
+.fechar-modal:hover {
+  color: #8E22bb; /* Muda para roxo ao passar o mouse */
+  transform: scale(1.1); /* Aumenta levemente */
+}
+
+.modal-conteudo h3 {
+  color: #8E22bb; /* Cor roxa para o título */
+  font-size: 22px; /* Tamanho da fonte */
+  margin-bottom: 15px; /* Espaço abaixo */
+  text-align: center; /* Centralizado */
+  border-bottom: 2px solid #8E22bb; /* Linha decorativa abaixo */
+  padding-bottom: 8px; /* Espaço entre texto e linha */
+}
+
+.modal-info-group {
+  margin-bottom: 15px; /* Espaço entre grupos de informação */
+}
+
+.modal-info-titulo {
+  color: #8E22bb; /* Cor roxa para títulos */
+  font-weight: bold; /* Texto em negrito */
+  font-size: 18px; /* Tamanho da fonte */
+  margin-bottom: 5px; /* Espaço abaixo */
+  display: flex; /* Para alinhar o marcador */
+  align-items: center; /* Alinha verticalmente */
+}
+
+.modal-info-titulo::before {
+  content: "•"; /* Adiciona uma bolinha */
+  color: #8E22bb; /* Cor roxa para a bolinha */
+  margin-right: 8px; /* Espaço entre bolinha e texto */
+  font-size: 24px; /* Tamanho da bolinha */
+}
+
+.modal-info-item {
+  color: #555; /* Cor cinza escuro para texto */
+  font-size: 16px; /* Tamanho da fonte */
+  margin-left: 20px; /* Recuo à esquerda */
+  margin-bottom: 3px; /* Espaço entre itens */
+  padding-left: 10px; /* Espaçamento interno à esquerda */
+  border-left: 2px solid #8E22bb; /* Linha vertical roxa à esquerda */
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; } /* Começa invisível */
+  to { opacity: 1; } /* Termina totalmente visível */
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-30px); /* Começa 30px acima */
+    opacity: 0; /* Invisível */
+  }
+  to {
+    transform: translateY(0); /* Termina na posição normal */
+    opacity: 1; /* Totalmente visível */
+  }
+}
+
+/* Seção que mostra os horários de funcionamento */
+.horario-container {
+  position: relative; /* Para posicionar conteúdo sobre a imagem */
+  width: 100%; /* Largura total */
+  margin: 0 auto; /* Centraliza */
+  margin-bottom: 0 !important; /* Remove margem inferior */
+}
+
+.horario-funcionamento-imagem {
+  width: 100%; /* Largura total */
+  max-height: 600px; /* Altura máxima */
+  object-fit: cover; /* Preenche o espaço mantendo proporções */
+}
+
+.horario-conteudo {
+  position: absolute; /* Posiciona sobre a imagem de fundo */
+  top: 50%; /* Meio vertical */
+  left: 50%; /* Meio horizontal */
+  transform: translate(-50%, -50%); /* Centraliza perfeitamente */
+  width: 90%; /* Largura com margens laterais */
+  color: white; /* Texto branco para contraste */
+}
+
+.titulo-sobreposto {
+  text-align: center; /* Centraliza texto */
+  font-size: 16px; /* Tamanho da fonte */
+  margin-bottom: 30px; /* Espaço abaixo do título */
+}
+
+.horario-funcionamento {
+  width: 100%; /* Largura total do container */
+  margin: 0 auto; /* Centraliza */
+  font-size: 12px; /* Tamanho da fonte */
+  background-color: rgba(0,0,0,0.4); /* Fundo semi-transparente */
+  border-radius: 8px; /* Cantos arredondados */
+  padding: 8px; /* Espaçamento interno */
+}
+
+.horario-funcionamento table {
+  width: 100%; /* Largura total */
+  border-collapse: separate; /* Modelo de borda separada */
+  border-spacing: 0 4px; /* Espaço entre linhas */
+}
+
+.horario-funcionamento td {
+  padding: 6px 10px; /* Espaçamento interno das células */
+  border-bottom: 1px solid rgba(255,255,255,0.2); /* Linha divisória sutil */
+}
+
+.horario-funcionamento td:first-child {
+  text-align: left; /* Alinha dias à esquerda */
+  width: 52%; /* Largura da coluna de dias */
+  padding-right: 10px; /* Espaço à direita */
+  font-weight: bold; /* Texto em negrito */
+}
+
+.horario-funcionamento td:last-child {
+  text-align: left; /* Alinha horários à esquerda */
+  width: 55%; /* Largura da coluna de horários */
+  padding-left: 10px; /* Espaço à esquerda */
+}
+
+.dia-atual {
+  color: #8E22bb; /* Destaca o dia atual em roxo */
+  font-weight: bold; /* Texto em negrito */
+  text-shadow: 0 0 3px rgba(255, 0, 0, 0.5); /* Sombra de texto sutil */
+}
+
+.botao-pedido-container {
+  text-align: center; /* Centraliza o botão */
+  margin: 20px auto; /* Margem acima e abaixo, centraliza */
+}
+
+.botao-pedido {
+  font-size: 19px; /* Tamanho grande de fonte */
+  display: inline-block; /* Permite padding e margens */
+  background-color: #8E22bb; /* Cor roxa de fundo */
+  color: white; /* Texto branco */
+  padding: 10px 10px; /* Espaçamento interno */
+  border-radius: 30px; /* Formato completamente arredondado */
+  text-decoration: none; /* Remove sublinhado */
+  font-weight: bold; /* Texto em negrito */
+  transition: all 0.3s ease; /* Transição suave para hover */
+  box-shadow: 0 4px 8px rgba(0,0,0,8); /* Sombra pronunciada */
+}
+
+/* Seção que mostra os complementos disponíveis */
+.complementos-container {
+  background: linear-gradient(60deg, #8E22bb 0%, #6b1f8a 100%); /* Gradiente roxo */
+  padding: 15px 1px; /* Espaçamento interno */
+  color: white; /* Texto branco */
+  text-align: center; /* Centraliza conteúdo */
+  margin-top: -14px !important; /* Remove espaço acima */
+  margin-block: 20px; /* Espaço acima e abaixo */
+}
+
+.complementos-titulo {
+  font-size: 30px; /* Tamanho grande de fonte */
+  margin-bottom: 20px; /* Espaço abaixo */
+  margin: 15px; /* Margem uniforme */
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.3); /* Sombra de texto sutil */
+}
+
+.complementos-lista {
+  display: flex; /* Organiza em linha */
+  flex-wrap: wrap; /* Quebra linha se necessário */
+  justify-content: center; /* Centraliza os itens */
+  gap: 12px; /* Espaço entre os itens */
+  margin-bottom: 15px; /* Espaço abaixo da lista */
+}
+
+.complemento-item {
+  background-color: rgba(255, 255, 255, 0.2); /* Fundo branco semi-transparente */
+  padding: 10px 15px; /* Espaçamento interno */
+  border-radius: 20px; /* Cantos muito arredondados */
+  font-size: 14px; /* Tamanho da fonte */
+  backdrop-filter: blur(5px); /* Efeito de desfoque no fundo */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Borda branca sutil */
+}
+
+.valores-container {
+  display: flex; /* Organiza em linha */
+  justify-content: center; /* Centraliza os valores */
+  gap: 20px; /* Espaço entre os valores */
+  flex-wrap: wrap; /* Quebra linha se necessário */
+}
+
+.valor-item {
+  background-color: white; /* Fundo branco */
+  color: #8E22bb; /* Texto roxo */
+  padding: 8px 15px; /* Espaçamento interno */
+  border-radius: 10px; /* Cantos arredondados */
+  font-weight: bold; /* Texto em negrito */
+  font-size: 14px; /* Tamanho da fonte */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* Sombra suave */
+  min-width: 160px; /* Largura mínima */
+}
+
+/* Título da seção de cardápio */
+.cardapio-titulo {
+  font-size: 10px; /* Tamanho pequeno de fonte */
+  text-align: center; /* Centralizado */
+  padding: 0px; /* Sem preenchimento */
+}
+
+/* Container principal do cardápio */
+.cardapio-container {
+  display: grid; /* Usa grid para layout */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Colunas responsivas */
+  gap: 20px; /* Espaço entre os itens */
+  padding: 20px; /* Espaçamento interno */
+  max-width: 1200px; /* Largura máxima */
+  margin: 0 auto; /* Centraliza */
+}
+
+.item-cardapio {
+  display: flex; /* Usa flexbox para organização */
+  flex-direction: column; /* Organiza em coluna (imagem acima, texto abaixo) */
+  background-color: #fff; /* Fundo branco */
+  border-radius: 10px; /* Cantos arredondados */
+  overflow: hidden; /* Esconde conteúdo que ultrapassar */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra suave */
+  transition: transform 0.3s ease; /* Animação suave ao passar mouse */
+}
+
+.item-cardapio:hover {
+  transform: translateY(-5px); /* Levanta o card ao passar mouse */
+}
+
+.item-imagem {
+  width: 100%; /* Largura total */
+  height: 200px; /* Altura fixa */
+  display: flex; /* Para centralizar imagem */
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+  overflow: hidden; /* Esconde partes da imagem que saiam */
+  background-color: #f8f8f8; /* Cor de fundo se imagem não carregar */
+}
+
+.item-imagem img {
+  width: auto; /* Largura automática mantém proporções */
+  height: 100%; /* Altura total do container */
+  object-fit: contain; /* Mostra imagem completa sem cortar */
+  object-position: center; /* Centraliza a imagem */
+}
+
+.item-descricao {
+  padding: 15px; /* Espaçamento interno */
+  flex: 1; /* Ocupa espaço restante */
+}
+
+.item-descricao p:first-child {
+  font-weight: bold; /* Nome do açaí em negrito */
+  font-size: 20px; /* Tamanho maior para o nome */
+  margin-bottom: 10px; /* Espaço abaixo do nome */
+  color: #333; /* Cor escura para boa leitura */
+}
+
+.item-descricao p:not(:first-child) {
+  font-size: 14px; /* Tamanho menor para descrição */
+  color: #666; /* Cor mais clara para descrição */
+}
+
+/* Botão que volta ao topo da página */
+.botao-topo {
+  position: fixed; /* Fica fixo na tela */
+  bottom: 30px; /* Distância do fundo */
+  right: 30px; /* Distância da direita */
+  width: 50px; /* Largura fixa */
+  height: 50px; /* Altura fixa */
+  border-radius: 50%; /* Formato circular */
+  background-color: #8E22bb; /* Cor roxa */
+  color: white; /* Texto branco */
+  border: none; /* Sem borda */
+  cursor: pointer; /* Muda cursor para mãozinha */
+  font-size: 24px; /* Tamanho da seta */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Sombra suave */
+  opacity: 0; /* Inicialmente invisível */
+  visibility: hidden; /* Inicialmente invisível */
+  transition: all 0.3s ease; /* Transição suave */
+  z-index: 999; /* Fica acima de tudo */
+}
+
+.botao-topo.visivel {
+  opacity: 1; /* Torna visível */
+  visibility: visible; /* Torna visível */
+}
+
+.botao-topo:hover {
+  background-color: #8E22bb; /* Mantém cor ao passar mouse */
+  transform: translateY(-3px); /* Levanta levemente */
+}
+
+/* Regras para telas maiores (tablets e desktops) */
+@media (min-width: 768px) {
+  .banner-container {
+    height: 250px; /* Banner mais alto em telas grandes */
+  }
+  
+  .logo-sobreposta { 
+    width: 200px; /* Logo maior em telas grandes */
+  }
+  
+  .botoes-redes-container {
+    gap: 15px; /* Mais espaço entre botões */
+  }
+  
+  .botao-instagram {
+    width: 42px; /* Botão do Instagram maior */
+    height: 42px; /* Botão do Instagram maior */
+  }
+  
+  .botao-instagram img {
+    width: 24px; /* Ícone do Instagram maior */
+    height: 24px; /* Ícone do Instagram maior */
+  }
+  
+  .botao-informacoes {
+    font-size: 14px; /* Texto maior */
+    padding: 10px 20px; /* Botão maior */
+  }
+  
+  .titulo-sobreposto {
+    font-size: 30px; /* Título maior */
+    margin-bottom: 10px; /* Menos espaço abaixo */
+  }
+  
+  .horario-funcionamento {
+    font-size: 30px; /* Texto da tabela maior */
+    max-width: 900px; /* Largura máxima maior */
+    background-color: transparent; /* Fundo transparente */
+    padding: 0; /* Sem preenchimento */
+  }
+  
+  .horario-funcionamento td {
+    padding: 9px 200px; /* Mais espaço nas células */
+  }
+  
+  .horario-funcionamento td:first-child {
+    width: 56%; /* Largura diferente para dias */
+    padding-right: 80px; /* Mais espaço à direita */
+  }
+  
+  .cardapio-titulo {
+    font-size: 30px; /* Título do cardápio maior */
+    margin: 20px 0; /* Margem acima e abaixo */
+  }
+  
+  .cardapio-container {
+    grid-template-columns: repeat(2, 1fr); /* Duas colunas no cardápio */
+  }
+  
+  .item-descricao p:first-child {
+    font-size: 24px; /* Nome do açaí maior */
+  }
+  
+  .item-descricao p:not(:first-child) {
+    font-size: 20px; /* Descrição maior */
+  }
+}
+
+/* Para telas muito grandes (desktops largos) */
+@media (min-width: 1024px) {
+  .cardapio-container {
+    grid-template-columns: repeat(3, 1fr); /* Três colunas no cardápio */
+  }
+}
+
+/* Regras para telas pequenas (celulares) */
+@media (max-width: 767px) {
+  .botao-pedido {
+    font-size: 7px; /* Texto menor no botão */
+    padding: 6px 6px; /* Botão menor */
+  }
+  
+  .botao-topo {
+    width: 40px; /* Botão de voltar menor */
+    height: 40px; /* Botão de voltar menor */
+    font-size: 20px; /* Seta menor */
+    bottom: 20px; /* Mais perto do fundo */
+    right: 20px; /* Mais perto da direita */
+  }
+  
+  .cardapio-titulo {
+    font-size: 17px; /* Título do cardápio menor */
+  }
+  
+  .complementos-titulo {
+    font-size: 16px; /* Título de complementos menor */
+    margin: 10px; /* Menos margem */
+  }
+  
+  .complemento-item {
+    font-size: 12px; /* Texto de complementos menor */
+    padding: 8px 12px; /* Complementos menores */
+  }
+  
+  .complementos-lista {
+    gap: 14px; /* Menos espaço entre complementos */
+  }
+  
+  .valor-item {
+    font-size: 12px; /* Texto de preços menor */
+    padding: 10px 15px; /* Preços menores */
+    min-width: 10px; /* Largura mínima menor */
+  }
+  
+  .valores-container {
+    gap: 15px; /* Menos espaço entre preços */
+  }
+}
+
+/* Para janelas modais em telas pequenas */
+@media (max-width: 600px) {
+  .modal-conteudo {
+    width: 90%; /* Modal mais largo */
+    padding: 20px 15px; /* Menos preenchimento */
+  }
+  
+  .modal-info-titulo {
+    font-size: 16px; /* Títulos menores */
+  }
+  
+  .modal-info-item {
+    font-size: 14px; /* Texto menor */
+  }
+}
+
+/* Para telas muito pequenas (celulares pequenos) */
+@media (max-width: 400px) {
+  .horario-funcionamento {
+    font-size: 11px; /* Texto da tabela menor */
+    padding: 0px; /* Sem preenchimento */
+  }
+  
+  .horario-funcionamento td {
+    padding: 0px 76px; /* Menos espaço nas células */
+  }
+}

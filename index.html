@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="estilo.css">
+  <script src="script.js"></script>
+  <title>Cardápio online</title>
+</head>
+<body>
+  
+<div class="banner-container">
+  <img src="imagemdotopo.png" class="banner-imagem">
+  
+ <div class="logo-e-botoes">
+    <img src="logo.png" alt="Logo da empresa" class="logo-sobreposta">
+    
+    <div class="botoes-redes-container">
+      <a href="https://www.instagram.com/iwm.eventos/" class="botao-instagram" target="_blank">
+        <img src="insta.png" alt="Instagram">
+      </a>
+      <a href="#" class="botao-informacoes" id="btnInformacoes">Mais Informações</a>
+    </div>
+  </div>
+</div>
+<!--janela flutuante de mais informações-->
+<div id="modalInformacoes" class="modal">
+  <div class="modal-conteudo">
+ <span class="fechar-modal">&times;</span>
+    <h3>Informações</h3>
+    
+    <div class="modal-info-group">
+      <div class="modal-info-titulo">Formas de Pagamento:</div>
+      <div class="modal-info-item">Pix</div>
+      <div class="modal-info-item">Espécie</div>
+    </div>
+    
+    <div class="modal-info-group">
+      <div class="modal-info-titulo">Entrega:</div>
+      <div class="modal-info-item">Motoboy</div>
+      <div class="modal-info-item">Retirada</div>
+    </div>
+    
+    <div class="modal-info-group">
+      <div class="modal-info-titulo">Telefone:</div>
+      <div class="modal-info-item"><p>+55 (99) 98427-8675</p>+55 (86) 9580-2555</div>
+    </div>
+    
+    <div class="modal-info-group">
+     <div class="modal-info-titulo">Endereço/CEP:</div>
+      <div class="modal-info-item">Rua Paraná, quadra C, casa 14, Julia Almeida</div>
+    </div>
+  </div>
+</div>
+
+  <!-- Container para horários -->
+  <div class="horario-container">
+    <img src="escura.jpg" class="horario-funcionamento-imagem">
+    
+    <div class="horario-conteudo">
+      <h4 class="titulo-sobreposto">Horário de funcionamento</h4>
+      
+      <table class="horario-funcionamento">
+        <tr>
+          <td>Domingo</td>
+          <td>Fechado</td>
+        </tr>
+        <tr>
+          <td>Segunda</td>
+          <td>13:00 - 22:50</td>
+        </tr>
+        <tr>
+          <td>Terça</td>
+          <td>13:00 - 22:50</td>
+        </tr>
+        <tr>
+          <td>Quarta</td>
+          <td>13:00 - 22:50</td>
+        </tr>
+        <tr>
+          <td>Quinta</td>
+          <td>13:00 - 22:50</td>
+        </tr>
+        <tr>
+          <td>Sexta</td>
+          <td>13:00 - 22:50</td>
+        </tr>
+        <tr>
+          <td>Sábado</td>
+          <td>18:00 - 22:50</td>
+        </tr>
+      </table>
+      <div class="botao-pedido-container">
+<a href="https://api.whatsapp.com/send?phone=55869580-2555" class="botao-pedido">Clique e faça o seu pedido</a>
+      </div>
+    </div>
+  </div>
+  
+  <!-- NOVA SEÇÃO: Complementos e Valores -->
+  <div class="complementos-container">
+    <h3 class="complementos-titulo">Até 5 complementos para o seu pedido perfeito</h3>
+    
+    <div class="complementos-lista">
+      <div class="complemento-item">Leite condensado</div>
+      <div class="complemento-item">Leite em pó</div>
+      <div class="complemento-item">Farinha de amendoim</div>
+      <div class="complemento-item">Confete</div>
+      <div class="complemento-item">Cobertura de chocolate</div>
+      <div class="complemento-item">Uva</div>
+      <div class="complemento-item">Kiwi</div>
+    </div>
+    
+    <div class="valores-container">
+      <div class="valor-item">300ml por R$ 14,00</div>
+      <div class="valor-item">500ml por R$ 25,00</div>
+    </div>
+  </div>
+  
+  <h3 class="cardapio-titulo">Exemplos de Pedidos Para Você se Inspirar</h3>
+  <!-- Botão Voltar ao Topo -->
+<button id="btnTopo" class="botao-topo" title="Voltar ao topo">↑</button>
+
+<!-- Cardapio -->
+<div class="cardapio-container">
+  <!-- Item 1 -->
+  <div class="item-cardapio">
+    <div class="item-imagem">
+      <img src="500ml.jpg">
+    </div>
+    <div class="item-descricao">
+      <p>Açaí de 500ml</p>
+     <p>Leite condensado, leite em pó, sorvete de açaí, cobertura de chantily com cauda de chocolate,farinha de amendoim, uva, kiwi e confetes.</p>
+    </div>
+  </div>
+  <!-- Item 2 -->
+  <div class="item-cardapio">
+    <div class="item-imagem">
+      <img src="kiwi.jpg">
+    </div>
+    <div class="item-descricao">
+      <p>Açaí com cobertura de farinha de amendoim e kiwi</p>
+     <p>Sorvete de açaí com recheio de leite condensado.</p>
+    </div>
+  </div>
+    <!-- Item 3 -->
+  <div class="item-cardapio">
+    <div class="item-imagem">
+      <img src="farinha.png">
+    </div>
+    <div class="item-descricao">
+      <p>Açaí com cobertura de farinha de amendoim</p>
+      <p>Camadas intercaladas entre leite condensado, leite em pó farinha de amendoim e sorvete de açaí.</p>
+    </div>
+  </div>
+    <!-- Item 4 -->
+  <div class="item-cardapio">
+    <div class="item-imagem">
+      <img src="fete.png">
+    </div>
+    <div class="item-descricao">
+      <p>Açaí com cobertura de confetes e cauda de chocolte</p>
+      <p>Duas camadas leite em pó, duas de sorvete de açaí, uma de farinha de amendoim e duas de leite condensado.</p>
+    </div>
+  </div>
+    <!-- Item 5 -->
+  <div class="item-cardapio">
+    <div class="item-imagem">
+      <img src="fl.png">
+    </div>
+    <div class="item-descricao">
+      <p>Açaí com cobertura de farinha de amendoim, cauda de chocolate e leite em pó</p>
+      <p>Duas camadas de açaí, duas de leite em pó, duas de farinha de amendoim e duas de leite condensado.</p>
+    </div>
+  </div>
+    <!-- Item 6 -->
+  <div class="item-cardapio">
+    <div class="item-imagem">
+      <img src="novo.jpg">
+    </div>
+    <div class="item-descricao">
+      <p>Açaí com cobertura de kiwi, uvas e confetes</p>
+      <p>Duas camadas de sorvete de açaí, duas de farinha de amendoim, uma de leite em pó e leite condensado no fundo.</p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
